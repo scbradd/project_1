@@ -12,6 +12,7 @@
 #
 
 class Varietal < ApplicationRecord
-  has_many:reds
-  has_many:whites
+  has_and_belongs_to_many:reds, :optional => true
+  has_and_belongs_to_many:whites, :optional => true
+
 end

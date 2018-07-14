@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_14_045451) do
+ActiveRecord::Schema.define(version: 2018_07_14_052900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,9 @@ ActiveRecord::Schema.define(version: 2018_07_14_045451) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "favouritewines_reds_whites", force: :cascade do |t|
+  end
+
   create_table "reds", force: :cascade do |t|
     t.text "name"
     t.text "image"
@@ -41,6 +44,12 @@ ActiveRecord::Schema.define(version: 2018_07_14_045451) do
     t.text "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "reds_varietals", id: false, force: :cascade do |t|
+    t.integer "red_id"
+    t.integer "varietal_id"
+    t.integer "favouritewines_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -65,6 +74,9 @@ ActiveRecord::Schema.define(version: 2018_07_14_045451) do
     t.text "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "whites_varietals", force: :cascade do |t|
   end
 
 end

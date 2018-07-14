@@ -11,4 +11,9 @@
 #
 
 class FavoriteWine < ApplicationRecord
+  belongs_to:user, :optional => true
+  has_and_belongs_to_many:varietals, :optional => true
+  has_many:reds, :optional => true
+  has_many:whites, :optional => true
+  has_many:areas, :optional => true
 end

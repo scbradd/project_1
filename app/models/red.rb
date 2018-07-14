@@ -14,5 +14,5 @@
 class Red < ApplicationRecord
   belongs_to:varietals, :optional => true
   belongs_to:favouritewines, :optional => true
-  has_many:area, :optional => true
+  has_and_belongs_to_many:area, :optional => true 
 end

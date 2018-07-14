@@ -14,8 +14,8 @@
 #
 
 class Area < ApplicationRecord
-  belongs_to:whites, :optional => true
-  belongs_to:reds, :optional => true
+  has_and_belongs_to_many:whites, :optional => true
+  has_and_belongs_to_many:reds, :optional => true
   belongs_to:favouritewines, :optional => true
-  belongs_to:user
+  
 end
