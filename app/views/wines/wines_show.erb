@@ -1,0 +1,22 @@
+<h1><%= @wine.title %></h1>
+
+<%= image_tag @wine.image, :alt => @wine.title, :class => 'feature' %>
+
+<ul>
+
+  <li><%= @wine.title %></li>
+  <% if @wines.wine.present? %>
+  <li>Wines: <%= link_to @wines.wine.name, @wines.wine %></li>
+  <% end %>
+  <li>color <%= @wine.color %></li>
+  <li> region <%= @wine.region %></li>
+  <li>image <%= @wine.image %></li>
+
+</ul>
+<div class="controls">
+  <%= link_to "edit wines", edit_wine_path(@wines) %>
+  <%= link_to 'delete wines', wine_path(@wines), :method => 'delete', :data => {:confirm => 'are you sure?'} %>
+</div>
+
+<nav><%= link_to 'All wines', wines_path %></nav>
+ <nav><%= link_to 'new wine', new_wine_path %></nav>

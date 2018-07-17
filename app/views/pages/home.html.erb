@@ -1,0 +1,8 @@
+<h1>Pages#home</h1>
+
+<% if @current_user.present? %>
+<h1>welcome back  <%= @current_user.email %></h1>
+<% end %>
+
+<nav><%= link_to 'All wines', wines_path %></nav>
+ <nav><%= link_to 'new wine', new_wine_path %></nav>

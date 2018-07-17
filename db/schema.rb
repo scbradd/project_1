@@ -10,73 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_14_052900) do
+ActiveRecord::Schema.define(version: 2018_07_16_233815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "areas", force: :cascade do |t|
-    t.text "name"
-    t.text "image"
-    t.text "url"
-    t.integer "red_id"
-    t.integer "white_id"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "favorite_wines", force: :cascade do |t|
-    t.integer "red_id"
-    t.integer "white_id"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "favouritewines_reds_whites", force: :cascade do |t|
-  end
-
-  create_table "reds", force: :cascade do |t|
-    t.text "name"
-    t.text "image"
-    t.integer "varietal_id"
-    t.text "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "reds_varietals", id: false, force: :cascade do |t|
-    t.integer "red_id"
-    t.integer "varietal_id"
-    t.integer "favouritewines_id"
-  end
 
   create_table "users", force: :cascade do |t|
     t.text "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.boolean "admin", default: false
   end
 
-  create_table "varietals", force: :cascade do |t|
-    t.integer "red_id"
-    t.integer "white_id"
-    t.text "image"
-    t.text "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "users_wines", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "wine_id"
   end
 
-  create_table "whites", force: :cascade do |t|
+  create_table "wines", force: :cascade do |t|
+    t.string "color"
     t.text "name"
-    t.text "image"
-    t.integer "varietal_id"
-    t.text "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "whites_varietals", force: :cascade do |t|
+    t.string "region"
+    t.text "image"
   end
 
 end
